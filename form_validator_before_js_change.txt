@@ -1,0 +1,86 @@
+// wtf is const?
+//constant reference to a value that cannot update
+
+//goal, outline input in red, we have error class in css
+//if form-control div has error class attatched, ten input will have border-color of error-color
+
+//deal w/ form-control div of username, we have input, want to add username
+//mission, add error class (css) to form-control div(html)
+//parent elemtent is the form-control div
+
+//if form-control div has error class attached, small tag is visible
+
+const form = document.getElementById('form');
+const username = document.getElementById('username');
+const email = document.getElementById('email');
+const password = document.getElementById('password');
+const password2 = document.getElementById('password2');
+
+//show input error message
+function showError(input,message){
+    const formControl = input.parentElement; //input=username
+    formControl.className ='form-control error';
+    const small = formControl.querySelector('small')
+    small.innerText = message;
+} 
+
+//Show success outline
+function showSuccess(input){
+    const formControl = input.parentElement; //input=username
+    formControl.className ='form-control success'; //set success class
+
+}
+
+//Check email is valid
+function isValidEmail(email){
+    //copy n paste js email regex
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase()); 
+}
+
+//need to add eventlistener on form for when we submit it
+//lsiten for submit
+
+//Event listeners
+form.addEventListener('submit',function(e) {
+    e.preventDefault();
+
+    //console.log('submit'); shows submit in console in google chrome
+
+    //console.log(username) //submit here, shows full element username is pulled from, we want just username in console
+
+    //console.log(username.value);
+
+    if(username.value === ''){
+        //alert('Username is required') <= shows pop up, we just want it underneath
+        showError(username,'Username is required' ); //takes in input, red outline around input if error
+    }
+    else{
+        showSuccess(username);//green outline around input if successful
+    }
+
+    if(email.value === ''){
+        showError(email,'Email is required'); 
+    } else if(!isValidEmail(email.value)){
+        showError(email,'Email is not valid');
+    }
+    
+    else{
+        showSuccess(email);
+    }
+
+    if(password.value === ''){
+        showError(password,'Password is required' ); 
+    }
+    else{
+        showSuccess(password);
+    }
+
+    if(password2.value === ''){
+        showError(password2,'Password does not match' ); 
+    }
+    else{
+        showSuccess(password2);
+    }
+
+});
