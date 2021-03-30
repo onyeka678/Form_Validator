@@ -63,7 +63,7 @@ function checkLength(input, min, max){
 
 //Check password
 function checkPasswordsMatch(input1,input2){
-    if(input1.value !== input2.value){
+    if(input1.value !== input2.value || input.2.value == ''){
         showError(input2, "Passwords do not match")
     }else{
         showSuccess(input2);
