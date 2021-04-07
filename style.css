@@ -13,7 +13,9 @@
 }
 
 body {
-  background-color: #f9fafb;
+  
+  background: url("/pexels-jess-bailey-designs-1764436.jpg") no-repeat
+    center/cover;
   font-family: "Barlow Semi Condensed", sans-serif;
   /* allows us to put content right in middle */
   display: flex; /* make all direct children of body are now flex items*/
