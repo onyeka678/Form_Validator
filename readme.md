@@ -1,6 +1,6 @@
 ## Form Validator (Intro Project)
 
-Simple client side form validation. Check requird, length, email and password match
+Simple client side form validation. Check required, length, email and password match
 
 ![Screenshot (215)](https://user-images.githubusercontent.com/80584507/113946404-63e9e300-97d6-11eb-9baf-cb5a74d372dd.png)
 
